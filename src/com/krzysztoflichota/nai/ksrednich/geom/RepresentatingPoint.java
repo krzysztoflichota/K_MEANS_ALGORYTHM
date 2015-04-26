@@ -49,13 +49,12 @@ public class RepresentatingPoint extends Point2D.Double {
     }
 
     public void move(){
+        if(denomOfAverage == 0) return;
         double newX = xAverage/denomOfAverage;
         double newY = yAverage/denomOfAverage;
         setLocation(newX, newY);
 
-        xAverage = newX;
-        yAverage = newY;
-        denomOfAverage = 1;
+        xAverage = yAverage = denomOfAverage = 0;
     }
 
     private static Color getRandomColor(){

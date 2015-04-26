@@ -86,6 +86,8 @@ public class KMeansWorker implements Runnable{
     }
 
     private void moveRepresentants(){
-        for(RepresentatingPoint p : rpoints) p.move();
+        synchronized (rpoints) {
+            for (RepresentatingPoint p : rpoints) p.move();
+        }
     }
 }
